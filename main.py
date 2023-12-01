@@ -93,5 +93,8 @@ def run():
     else:
         send_line_notify("そこはすでに埋まっているようです")
 
-if __name__ == "__main__":
-    run()
+schedule.every().thursday.at("12:11").do(moodhub)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)

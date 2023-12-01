@@ -52,8 +52,5 @@ def moodhub():
     else:
         print("教室はまだ取れていません。")
 
-schedule.every().thursday.at("12:11").do(moodhub)
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+if __name__ == "__main__":
+    moodhub()
