@@ -6,6 +6,7 @@ from line import send_line_notify
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import os
+import schedule
 load_dotenv()
 
 def moodhub():
@@ -51,5 +52,8 @@ def moodhub():
     else:
         print("教室はまだ取れていません。")
 
-if __name__ == "__main__":
-    moodhub()
+schedule.every().thursday.at("12:11").do(moodhub)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
