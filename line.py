@@ -1,13 +1,13 @@
 # LINEに通知を送る関数
-
+from dotenv import load_dotenv
+import os
 import requests
+load_dotenv()
 
 # APIのURLとトークン
 url = "https://notify-api.line.me/api/notify"
 
-access_token = [
-  "qXB6gOOOu9SvIPaOSFP6HzPQcnNylgXBe0A49yIBp2q",#re:図書館予約
-]
+access_token = [os.getenv("ACCESS_TOKEN")]
 
 message = "こーとがあいてるよ！"
 
