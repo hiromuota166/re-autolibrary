@@ -11,7 +11,7 @@ load_dotenv()
 
 def moodhub():
     options = Options()
-    options.headless = False  # ヘッドレスモード True=非表示, False=表示
+    options.headless = True  # ヘッドレスモード True=非表示, False=表示
     driver = webdriver.Chrome(options=options)
 
     # メールアドレスとパスワードの指定
