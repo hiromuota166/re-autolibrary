@@ -43,7 +43,7 @@ def run():
     #今日+7日後の日付を取得
     #毎週木曜に実行すると仮定
     today = datetime.today()
-    after_7days = today + timedelta(days=7)
+    after_7days = today + timedelta(days=5)
     #after_7daysの日付を指定日inputに入力
     search_date.send_keys(after_7days.strftime("%Y/%m/%d")) 
     search_btn.click()
@@ -93,7 +93,7 @@ def run():
     else:
         send_line_notify("そこはすでに埋まっているようです")
 
-schedule.every().thursday.at("12:11").do(moodhub)
+schedule.every().saturday.at("13:40").do(moodhub)
 
 while True:
     schedule.run_pending()
