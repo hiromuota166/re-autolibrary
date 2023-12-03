@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from datetime import datetime, timedelta
 import time
+from time import sleep
 from line import send_line_notify
 from bs4 import BeautifulSoup
 from selenium.webdriver.support.select import Select
@@ -93,8 +94,9 @@ def run():
     else:
         send_line_notify("そこはすでに埋まっているようです")
 
-schedule.every().saturday.at("15:00").do(moodhub)
+#毎週木曜日の12時11分に実行
+schedule.every().thursday.at("12:11").do(run)
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    sleep(1)
