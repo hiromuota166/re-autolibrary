@@ -7,9 +7,11 @@ load_dotenv()
 # APIのURLとトークン
 url = "https://notify-api.line.me/api/notify"
 
-access_token = [os.getenv("ACCESS_TOKEN")]
+access_token = [
+  os.getenv("GROUP")
+]
 
-message = "こーとがあいてるよ！"
+message = "教室があいてるよ！"
 
 def send_line_notify(message):
   for token in access_token:

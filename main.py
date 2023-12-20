@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.support.select import Select
 from dotenv import load_dotenv
 import os
-import schedule
 from for_moodhub import moodhub
 
 load_dotenv()
@@ -44,7 +43,7 @@ def run():
     #今日+7日後の日付を取得
     #毎週木曜に実行すると仮定
     today = datetime.today()
-    after_7days = today + timedelta(days=5)
+    after_7days = today + timedelta(days=7)
     #after_7daysの日付を指定日inputに入力
     search_date.send_keys(after_7days.strftime("%Y/%m/%d")) 
     search_btn.click()
@@ -94,9 +93,5 @@ def run():
     else:
         send_line_notify("そこはすでに埋まっているようです")
 
-#毎週木曜日の12時11分に実行
-schedule.every().thursday.at("12:11").do(run)
-
-while True:
-    schedule.run_pending()
-    sleep(1)
+if __name__ == "__main__":
+    run()
