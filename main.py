@@ -91,7 +91,7 @@ def run():
         #moodhubの関数を実行
         return moodhub()
     else:
-        send_line_notify("そこはすでに埋まっているようです")
+        print("そこはすでに埋まっているようです")
 
 if __name__ == "__main__":
     run()
